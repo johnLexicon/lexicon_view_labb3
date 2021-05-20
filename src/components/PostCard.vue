@@ -4,9 +4,9 @@
     <!-- Card image -->
     <div class="view view-cascade overlay">
       <img class="card-img-top" :src="post.imgUrl" alt="Card image cap" />
-      <a href="#!">
+      <router-link :to="{ name: 'BlogPost', params: { id: post.id } }">
         <div class="mask rgba-white-slight"></div>
-      </a>
+      </router-link>
     </div>
 
     <!-- Card content -->
