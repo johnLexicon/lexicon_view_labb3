@@ -25,5 +25,10 @@ export default new Vuex.Store({
       }
     },
   },
+  getters: {
+    getPosts: (state) => {
+      return state.posts;
+    },
+  },
   modules: {},
 });
