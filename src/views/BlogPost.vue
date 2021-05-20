@@ -24,7 +24,6 @@ export default {
   },
   created() {
     const postId = this.$route.params.id;
-    console.log(postId);
     this.post = this.getPostById(postId);
   },
 };
