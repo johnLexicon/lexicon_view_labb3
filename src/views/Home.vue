@@ -2,7 +2,12 @@
   <div class="home">
     <h1>Previews</h1>
     <div class="mt-5">
-      <PostCard v-for="post in getPosts" :key="post.id" :post="post" />
+      <PostCard
+        v-for="post in getPosts"
+        :key="post.id"
+        :post="post"
+        :showAllText="false"
+      />
     </div>
   </div>
 </template>

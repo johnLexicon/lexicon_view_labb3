@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Post</h1>
-    <PostCard v-if="post" :post="post" />
+    <PostCard v-if="post" :post="post" :showAllText="true" />
     <p v-else>Retrieving Post...</p>
   </div>
 </template>

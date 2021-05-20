@@ -16,7 +16,8 @@
         <strong v-randomTextColor>{{ post.title }}</strong>
       </h2>
       <!-- Text -->
-      <p class="card-text">{{ post.body | shorten }}...</p>
+      <p v-if="showAllText" class="card-text">{{ post.body }}</p>
+      <p v-else class="card-text">{{ post.body | shorten }}...</p>
     </div>
   </div>
   <!-- Card Wider -->
@@ -30,6 +31,7 @@ export default {
       type: Object,
       required: true,
     },
+    showAllText: Boolean,
   },
   filters: {
     shorten: (value) => {
