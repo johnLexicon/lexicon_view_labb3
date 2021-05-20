@@ -12,9 +12,9 @@
     <!-- Card content -->
     <div class="card-body card-body-cascade text-center">
       <!-- Title -->
-      <h4 class="card-title">
-        <strong>{{ post.title }}</strong>
-      </h4>
+      <h2 class="card-title">
+        <strong v-randomTextColor>{{ post.title }}</strong>
+      </h2>
       <!-- Text -->
       <p class="card-text">{{ post.body | shorten }}...</p>
     </div>
@@ -34,6 +34,17 @@ export default {
   filters: {
     shorten: (value) => {
       return value.substring(0, 400);
+    },
+  },
+  directives: {
+    randomTextColor: {
+      bind(elem) {
+        const r = Math.floor(Math.random() * 200);
+        const g = Math.floor(Math.random() * 200);
+        const b = Math.floor(Math.random() * 200);
+        const color = `rgb(${r}, ${g}, ${b})`;
+        elem.style = `color: ${color}`;
+      },
     },
   },
 };
