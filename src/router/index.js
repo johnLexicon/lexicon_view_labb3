@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import CreatePost from '../views/CreatePost.vue';
 import BlogPost from '../views/BlogPost.vue';
+import NotFound from '../views/NotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ const routes = [
     component: function() {
       return import(/* webpackChunkName: "about" */ '../views/About.vue');
     },
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound,
   },
 ];
 
