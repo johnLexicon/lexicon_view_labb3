@@ -3,8 +3,16 @@
   <div class="card card-cascade wider shadow-lg mb-4">
     <!-- Card image -->
     <div class="view view-cascade overlay">
-      <img class="card-img-top" :src="post.imgUrl" alt="Card image cap" />
-      <router-link :to="{ name: 'BlogPost', params: { id: post.id } }">
+      <img
+        v-if="post.imgUrl"
+        class="card-img-top"
+        :src="post.imgUrl"
+        alt="Card image cap"
+      />
+      <router-link
+        v-if="addLink"
+        :to="{ name: 'BlogPost', params: { id: post.id } }"
+      >
         <div class="mask rgba-white-slight"></div>
       </router-link>
     </div>
@@ -30,6 +38,10 @@ export default {
     post: {
       type: Object,
       required: true,
+    },
+    addLink: {
+      type: Boolean,
+      default: false,
     },
     showAllText: Boolean,
   },

@@ -7,6 +7,7 @@
         :key="post.id"
         :post="post"
         :showAllText="false"
+        :addLink="true"
       />
     </div>
   </div>
