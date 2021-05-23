@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link class="nav-link active" aria-current="page" to="/"
+          <router-link class="nav-link" aria-current="page" to="/"
             >Home</router-link
           >
           <router-link class="nav-link" to="/create">Create Post</router-link>
