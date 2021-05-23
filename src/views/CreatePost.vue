@@ -4,7 +4,7 @@
     <!-- Default form contact -->
     <form
       class="text-center border border-light p-5"
-      @submit.prevent="createPost"
+      @submit.prevent="sendPost"
     >
       <p class="h4 mb-4">Blog Post</p>
 
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import PostCard from "../components/PostCard";
 export default {
   name: "CreatePost",
@@ -63,7 +64,6 @@ export default {
   data() {
     return {
       post: {
-        id: null,
         title: "",
         body: "",
         likes: 0,
@@ -80,7 +80,15 @@ export default {
     },
   },
   methods: {
-    createPost() {},
+    ...mapActions(["createPost"]),
+    sendPost() {
+      if (!this.isValid) {
+        return;
+      }
+      const postToCreate = { ...this.post };
+      this.createPost(postToCreate);
+      this.post = { title: "", body: "", likes: 0, imgUrl: null };
+    },
   },
 };
 </script>

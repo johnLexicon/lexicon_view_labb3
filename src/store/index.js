@@ -14,12 +14,23 @@ export default new Vuex.Store({
     FETCH_POSTS: (state, posts) => {
       state.posts = posts;
     },
+    CREATE_POST: (state, post) => {
+      state.posts.push(post);
+    },
   },
   actions: {
     fetchPosts: async ({ commit }) => {
       try {
-        const result = await axios.get(api);
-        commit('FETCH_POSTS', result.data);
+        const response = await axios.get(api);
+        commit('FETCH_POSTS', response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    createPost: async ({ commit }, payload) => {
+      try {
+        const response = await axios.post(api, payload);
+        commit('CREATE_POST', response.data);
       } catch (err) {
         console.log(err);
       }
