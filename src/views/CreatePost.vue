@@ -2,7 +2,10 @@
   <div class="createPost">
     <h1>Add New Post</h1>
     <!-- Default form contact -->
-    <form class="text-center border border-light p-5" action="#!">
+    <form
+      class="text-center border border-light p-5"
+      @submit.prevent="createPost"
+    >
       <p class="h4 mb-4">Blog Post</p>
 
       <!-- Title -->
@@ -35,7 +38,13 @@
       </div>
 
       <!-- Send button -->
-      <button class="btn btn-danger btn-block" type="submit">Send</button>
+      <button
+        :disabled="!isValid"
+        class="btn btn-danger btn-block"
+        type="submit"
+      >
+        Send
+      </button>
     </form>
     <!-- Default form contact -->
 
@@ -66,6 +75,12 @@ export default {
     showPreview() {
       return this.post.title || this.post.imgUrl || this.post.body;
     },
+    isValid() {
+      return this.post.title.length > 1 && this.post.body.length >= 50;
+    },
+  },
+  methods: {
+    createPost() {},
   },
 };
 </script>
