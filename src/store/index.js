@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios';
+import { dataService } from '../shared/dataService';
 
 Vue.use(Vuex);
-
-const api = 'http://localhost:3000/posts';
 
 export default new Vuex.Store({
   state: {
@@ -21,16 +19,16 @@ export default new Vuex.Store({
   actions: {
     fetchPosts: async ({ commit }) => {
       try {
-        const response = await axios.get(api);
-        commit('FETCH_POSTS', response.data);
+        const posts = await dataService.getAllPosts();
+        commit('FETCH_POSTS', posts);
       } catch (err) {
         console.log(err);
       }
     },
     createPost: async ({ commit }, payload) => {
       try {
-        const response = await axios.post(api, payload);
-        commit('CREATE_POST', response.data);
+        const addedPost = await dataService.addPost(payload);
+        commit('CREATE_POST', addedPost);
       } catch (err) {
         console.log(err);
       }

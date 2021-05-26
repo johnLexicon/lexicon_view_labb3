@@ -16,6 +16,7 @@ export default {
     Navbar,
   },
   created() {
+    console.log(process.env.NODE_ENV);
     this.fetchPosts();
   },
   methods: {
