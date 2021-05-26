@@ -87,7 +87,7 @@ export default {
       }
       const postToCreate = { ...this.post };
       this.createPost(postToCreate);
-      this.post = { title: "", body: "", likes: 0, imgUrl: null };
+      this.post = { title: "", body: "", imgUrl: null };
     },
   },
 };
