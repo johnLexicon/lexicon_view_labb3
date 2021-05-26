@@ -9,18 +9,10 @@
 
 <script>
 import Navbar from "./components/Navbar";
-import { mapActions } from "vuex";
 export default {
   name: "App",
   components: {
     Navbar,
-  },
-  created() {
-    console.log(process.env.NODE_ENV);
-    this.fetchPosts();
-  },
-  methods: {
-    ...mapActions(["fetchPosts"]),
   },
 };
 </script>

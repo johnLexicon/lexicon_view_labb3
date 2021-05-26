@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    posts: [],
+    posts: null,
   },
   mutations: {
     FETCH_POSTS: (state, posts) => {
@@ -17,10 +17,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    fetchPosts: async ({ commit }) => {
+    fetchPosts: async (context) => {
       try {
+        context.state.posts = null;
         const posts = await dataService.getAllPosts();
-        commit('FETCH_POSTS', posts);
+        context.commit('FETCH_POSTS', posts);
       } catch (err) {
         console.log(err);
       }
@@ -37,6 +38,9 @@ export default new Vuex.Store({
   getters: {
     getPosts: (state) => {
       return state.posts;
+    },
+    postsAvailable: (state) => {
+      return state.posts !== null;
     },
     getPostById: (state) => (id) => {
       return state.posts.find((post) => post._id === id);

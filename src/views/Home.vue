@@ -8,7 +8,9 @@
       placeholder="Search by title"
     />
     <div class="mt-5">
+      <h3 v-if="!postsAvailable">Loading posts</h3>
       <PostCard
+        v-else
         v-for="post in filteredPosts"
         :key="post._id"
         :post="post"
@@ -19,7 +21,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import PostCard from "../components/PostCard";
 export default {
   name: "Home",
@@ -31,8 +33,14 @@ export default {
       search: "",
     };
   },
+  created() {
+    this.fetchPosts();
+  },
+  methods: {
+    ...mapActions(["fetchPosts"]),
+  },
   computed: {
-    ...mapGetters(["getPosts"]),
+    ...mapGetters(["getPosts", "postsAvailable"]),
     filteredPosts() {
       const filteredPosts = this.getPosts.filter((p) =>
         p.title.toLowerCase().match(this.search.toLowerCase())
