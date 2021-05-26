@@ -66,7 +66,6 @@ export default {
       post: {
         title: "",
         body: "",
-        likes: 0,
         imgUrl: null,
       },
     };
