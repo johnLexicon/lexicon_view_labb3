@@ -10,7 +10,7 @@
     <div class="mt-5">
       <PostCard
         v-for="post in filteredPosts"
-        :key="post.id"
+        :key="post._id"
         :post="post"
         :showAllText="false"
         :addLink="true"

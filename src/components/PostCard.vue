@@ -11,7 +11,7 @@
       />
       <router-link
         v-if="addLink"
-        :to="{ name: 'BlogPost', params: { id: post.id } }"
+        :to="{ name: 'BlogPost', params: { id: post._id } }"
       >
         <div class="mask rgba-white-slight"></div>
       </router-link>
