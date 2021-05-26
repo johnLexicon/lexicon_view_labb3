@@ -47,6 +47,25 @@
       "body": "The technique is to scan through the content of a block of text and create a frequency table of what letters come after others. ... We then generate text which is randomly produced but has the same distribution of letter groups as the input text. The result depends greatly on the source text and on the order.",
       "imgUrl": "https://images.unsplash.com/photo-1621693733036-e00dc554e19e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1299&q=80",
       "_id": 8
+    },
+    {
+      "title": "Blog created in json-server",
+      "body": "Let us see if this gets created. There are different ways to update Node.js if you are using a Linux-based system. Although using the Node Version Manager is the easiest and most recommended option, you can also update with the local package manager or by downloading the binary packages.",
+      "likes": 0,
+      "imgUrl": "https://images.unsplash.com/photo-1621873592566-37218c8bd619?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80",
+      "_id": 9
+    },
+    {
+      "title": "Post testing postsAvailable",
+      "body": "Make a simple POST request via $.ajax function (or via Fiddler/Postman/etc.). Content-type of request should be set to application/json - explanation may be found on this project's github page:\n\nA POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.",
+      "imgUrl": null,
+      "_id": 10
+    },
+    {
+      "title": "Another try",
+      "body": "MacPorts is the other package manager for Mac. The following will update the local ports tree to get access to updated versions. Then it will install the latest version of Node.js. This works even if you have a previous version of the package installed.",
+      "imgUrl": null,
+      "_id": 11
     }
   ]
 }
