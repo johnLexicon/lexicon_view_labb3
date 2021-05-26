@@ -1,40 +1,43 @@
 <template>
   <div class="createPost">
-    <h1>Add New Post</h1>
+    <h2 class="mb-5">Add New Post</h2>
     <!-- Default form contact -->
-    <form
-      class="text-center border border-light p-5"
-      @submit.prevent="sendPost"
-    >
-      <p class="h4 mb-4">Blog Post</p>
-
+    <form class="border border-light mb-5" @submit.prevent="sendPost">
       <!-- Title -->
-      <input
-        type="text"
-        id="title"
-        class="form-control mb-4 rounded-2"
-        placeholder="Title..."
-        v-model="post.title"
-      />
-
+      <div class="form-group mb-4">
+        <label class="fw-bold fs-5 text-muted" for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control rounded-2"
+          placeholder="Title..."
+          v-model="post.title"
+        />
+        <span class="small text-muted">Required</span>
+      </div>
       <!-- Image Url -->
-      <input
-        type="text"
-        id="imageUrl"
-        class="form-control mb-4 rounded-2"
-        placeholder="Image Url"
-        v-model="post.imgUrl"
-      />
+      <div class="form-group mb-5">
+        <label class="fw-bold fs-5 text-muted" for="imageUrl">Image Url</label>
+        <input
+          type="text"
+          id="imageUrl"
+          class="form-control rounded-2"
+          placeholder="Image Url"
+          v-model="post.imgUrl"
+        />
+      </div>
 
       <!-- Content -->
-      <div class="form-group">
+      <div class="form-group mb-5">
+        <label class="fw-bold fs-5 text-muted" for="content">Content</label>
         <textarea
-          class="form-control rounded-2 mb-4"
+          class="form-control rounded-2"
           id="content"
           rows="3"
           placeholder="Blog Content..."
           v-model="post.body"
         ></textarea>
+        <span class="small text-muted">Required, at least 50 characters</span>
       </div>
 
       <!-- Send button -->
@@ -48,7 +51,7 @@
     </form>
     <!-- Default form contact -->
 
-    <h2>Preview Blog</h2>
+    <h2 class="mb-5">Preview Blog</h2>
     <PostCard v-if="showPreview" :post="post" :showAllText="true" />
   </div>
 </template>
