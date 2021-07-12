@@ -15,6 +15,18 @@
         />
         <span class="small text-muted">Required</span>
       </div>
+      <!-- Authors -->
+      <div class="form-group mb-4">
+        <select
+          v-model="post.author"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option v-for="(author, index) in authors" :key="index">
+            {{ author }}
+          </option>
+        </select>
+      </div>
       <!-- Image Url -->
       <div class="form-group mb-5">
         <label class="fw-bold fs-5 text-muted" for="imageUrl">Image Url</label>
@@ -68,9 +80,11 @@ export default {
     return {
       post: {
         title: "",
+        author: "Unknown",
         body: "",
         imgUrl: null,
       },
+      authors: ["Unknown", "Author 1", "Author 2", "Author 3"],
     };
   },
   computed: {

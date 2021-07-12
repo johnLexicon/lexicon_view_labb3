@@ -26,6 +26,9 @@
       <!-- Text -->
       <p v-if="showAllText" class="card-text">{{ post.body }}</p>
       <p v-else class="card-text">{{ post.body | shorten }}...</p>
+      <small
+        >Author: <i>{{ post.author }}</i></small
+      >
     </div>
   </div>
   <!-- Card Wider -->
