@@ -17,11 +17,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link class="nav-link" aria-current="page" to="/"
+          <router-link exact class="nav-link" aria-current="page" to="/"
             >Home</router-link
           >
-          <router-link class="nav-link" to="/create">Create Post</router-link>
-          <router-link class="nav-link" to="/about">About</router-link>
+          <router-link exact class="nav-link" to="/create"
+            >Create Post</router-link
+          >
+          <router-link exact class="nav-link" to="/about">About</router-link>
         </div>
       </div>
     </div>
@@ -32,5 +34,9 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+.router-link-active {
+  color: #d60000 !important;
+  text-decoration: underline;
+}
 </style>
