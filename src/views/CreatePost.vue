@@ -17,7 +17,9 @@
       </div>
       <!-- Authors -->
       <div class="form-group mb-4">
+        <label for="author" class="fw-bold fs-5 text-muted">Author</label>
         <select
+          id="author"
           v-model="post.author"
           class="form-select"
           aria-label="Default select example"
@@ -52,6 +54,32 @@
         <span class="small text-muted">Required, at least 50 characters</span>
       </div>
 
+      <!-- Categories -->
+      <div class="fw-bold fs-5 text-muted">Categories</div>
+      <div id="categories" ref="categories" class="btn-group mb-5" role="group">
+        <button
+          @click="handleChosenCategory($event, 'food')"
+          type="button"
+          class="btn btn-success"
+        >
+          Food
+        </button>
+        <button
+          @click="handleChosenCategory($event, 'travel')"
+          type="button"
+          class="btn btn-success"
+        >
+          Travel
+        </button>
+        <button
+          @click="handleChosenCategory($event, 'politics')"
+          type="button"
+          class="btn btn-success"
+        >
+          Politics
+        </button>
+      </div>
+
       <!-- Send button -->
       <button
         :disabled="!isValid"
@@ -83,6 +111,7 @@ export default {
         author: "Unknown",
         body: "",
         imgUrl: null,
+        categories: [],
       },
       authors: ["Unknown", "Author 1", "Author 2", "Author 3"],
     };
@@ -95,6 +124,21 @@ export default {
       return this.post.title.length > 1 && this.post.body.length >= 50;
     },
   },
+  watch: {
+    "post.categories": function () {
+      const elems = this.$refs.categories.childNodes;
+      elems.forEach((elem) => {
+        let buttonName = elem.textContent.trim().toLowerCase();
+        if (this.post.categories.includes(buttonName)) {
+          elem.classList.add("btn-danger");
+          elem.classList.remove("btn-success");
+        } else {
+          elem.classList.remove("btn-danger");
+          elem.classList.add("btn-success");
+        }
+      });
+    },
+  },
   methods: {
     ...mapActions(["createPost"]),
     sendPost() {
@@ -103,7 +147,16 @@ export default {
       }
       const postToCreate = { ...this.post };
       this.createPost(postToCreate);
-      this.post = { title: "", body: "", imgUrl: null };
+      this.post = { title: "", body: "", imgUrl: null, categories: [] };
+    },
+    handleChosenCategory({ target }, category) {
+      if (this.post.categories.includes(category)) {
+        this.post.categories = this.post.categories.filter(
+          (c) => c !== category
+        );
+      } else {
+        this.post.categories.push(category);
+      }
     },
   },
 };

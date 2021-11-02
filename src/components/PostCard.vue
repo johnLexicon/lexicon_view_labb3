@@ -26,9 +26,22 @@
       <!-- Text -->
       <p v-if="showAllText" class="card-text">{{ post.body }}</p>
       <p v-else class="card-text">{{ post.body | shorten }}...</p>
-      <small
-        >Author: <i>{{ post.author }}</i></small
-      >
+      <div class="details">
+        <small
+          >Author: <i>{{ post.author }}</i></small
+        >
+        <div
+          v-if="post.categories && post.categories.length > 0"
+          class="categories"
+        >
+          <span
+            class="badge bg-danger d-inline-block m-3"
+            v-for="(category, index) in post.categories"
+            :key="index"
+            >{{ category }}</span
+          >
+        </div>
+      </div>
     </div>
   </div>
   <!-- Card Wider -->
