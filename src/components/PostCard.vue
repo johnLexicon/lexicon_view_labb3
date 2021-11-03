@@ -1,11 +1,15 @@
 <template>
   <!-- Card Wider -->
-  <div class="card card-cascade wider shadow-lg mb-4">
+  <div class="card card-cascade wider shadow-lg pt-3 px-5 mb-4">
+    <!-- Title -->
+    <h2 class="card-title text-center mb-4">
+      <strong v-randomTextColor>{{ post.title }}</strong>
+    </h2>
     <!-- Card image -->
     <div class="view view-cascade overlay">
       <img
         v-if="post.imgUrl"
-        class="card-img-top"
+        class="card-img-top rounded"
         :src="post.imgUrl"
         alt="Card image cap"
       />
@@ -19,10 +23,6 @@
 
     <!-- Card content -->
     <div class="card-body card-body-cascade text-center">
-      <!-- Title -->
-      <h2 class="card-title">
-        <strong v-randomTextColor>{{ post.title }}</strong>
-      </h2>
       <!-- Text -->
       <p v-if="showAllText" class="card-text">{{ post.body }}</p>
       <p v-else class="card-text">{{ post.body | shorten }}...</p>
@@ -80,5 +80,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>
