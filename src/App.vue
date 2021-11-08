@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
-    <div class="container-fluid container-sm mt-4">
+    <div class="margin-top container-fluid container-sm">
       <transition name="route-animation">
         <router-view />
       </transition>
@@ -19,6 +19,9 @@ export default {
 };
 </script>
 <style>
+.margin-top {
+  margin-top: 90px;
+}
 .route-animation-enter-active {
   animation-name: entering;
   animation-duration: 4s;
